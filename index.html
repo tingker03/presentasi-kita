@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Studi Kasus Sistem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="slide active">
+    <h1>Digitalisasi Sistem Distribusi Bantuan</h1>
+    <p>Studi Kasus Bencana</p>
+</div>
+
+<div class="slide">
+    <h2>Kasus</h2>
+    <p>Saat terjadi banjir besar, pemerintah daerah ingin menyalurkan bantuan secara cepat menggunakan sistem digital.</p>
+</div>
+
+<div class="slide">
+    <h2>Masalah Awal</h2>
+    <ul>
+        <li>Data korban tidak sinkron</li>
+        <li>Distribusi bantuan tidak merata</li>
+        <li>Relawan bingung karena informasi berubah</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h2>Pendekatan Sistem</h2>
+    <ul>
+        <li><b>Filosofi:</b> Sistem terhubung antara data, lokasi, dan relawan</li>
+        <li><b>Analisis:</b> Pendataan, stok, distribusi, pelaporan</li>
+        <li><b>Manajemen:</b> Melibatkan semua pihak</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h2>Hasil</h2>
+    <ul>
+        <li>Bantuan lebih tepat sasaran</li>
+        <li>Tidak ada penumpukan</li>
+        <li>Koordinasi lebih jelas</li>
+    </ul>
+</div>
+
+<div class="nav">
+    <button onclick="prevSlide()">⬅</button>
+    <button onclick="nextSlide()">➡</button>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+});
+</script>
+
+</body>
+</html>
